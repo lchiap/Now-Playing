@@ -1,0 +1,124 @@
+// ==========================================================================
+// Base Styles
+// ==========================================================================
+
+* {
+	@include box-sizing(border-box);
+  outline: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+    font-family: $font-family--roboto;
+    -webkit-font-smoothing: subpixel-antialiased;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background: url('https://wallpaperscraft.com/image/san_francisco_bridge_river_city_28645_3840x2160.jpg') no-repeat;
+    background-size: cover; 
+}
+
+
+// Text
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+h1,
+h2 {
+  font-weight: $font-weight--light;
+}
+
+h3,
+h4,
+h5, 
+h6 {
+  font-weight: $font-weight--medium;
+}
+
+
+
+// Text
+
+.headline {
+
+  &-1, &-2, &-3, &-4, &-5, &-6 {
+    font-weight: $font-weight--light;
+  }
+  
+  &-1 {
+    font-size: rem(48px);
+  }
+  
+  &-2 {
+    font-size: rem(28px);
+    
+    @media screen and(min-width: $sm-screen) {
+          font-size: rem(36px);
+    }
+  }
+  
+  &-3 {
+    font-size: rem(22px);
+    
+    @media screen and(min-width: $sm-screen) {
+          font-size: rem(28px);
+    }
+  }
+  
+  &-4 {
+    font-size: rem(18px);
+    
+    @media screen and(min-width: $sm-screen) {
+          font-size: rem(22px);
+    }
+  }
+  
+  &-5 {
+    font-size: rem(18px);
+  }
+  
+  &-6 {
+    font-size: rem(14px);
+  }
+
+}
+
+
+
+p {
+    font-size: rem(14px);
+    font-weight: $font-weight--medium;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+// Images
+figure {
+  display: block;
+  margin: 0;
+}
+
+img {
+  display: inline-block;
+}
+
+// Lists
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+

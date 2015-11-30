@@ -1,0 +1,29 @@
+// ==========================================================================
+// Variables
+// ==========================================================================
+
+// Screen MQ
+
+$sm-screen: rem(768px);
+$md-screen: rem(992px);
+$lg-screen: rem(1200px);
+
+
+// Font Stacks
+
+$font-family--roboto    : 'Roboto', sans-serif;
+
+// Font Weights
+
+$font-weight--thin       : 100;
+$font-weight--light      : 300;
+$font-weight--medium     : 400;
+$font-weight--bold       : 700;
+$font-weight--ultra-bold : 900;
+
+// Colors
+
+$light-blue		: #3787BF;
+$dark-blue		: #0F0A2E;
+$white			: #ffffff;
+$gray			: #E0E4EF;

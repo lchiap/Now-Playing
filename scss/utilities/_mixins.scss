@@ -1,0 +1,69 @@
+// ==========================================================================
+// Mixins
+// ==========================================================================
+
+// BEM selectors
+
+@mixin e($element) {
+    &__#{$element} {
+    @content;
+  }
+}
+
+@mixin m($modifier) {
+  &--#{$modifier} {
+    @content;
+  }
+}
+
+// Box sizing
+
+@mixin box-sizing($value){
+    box-sizing: $value;
+    -webkit-box-sizing: $value;
+    -moz-box-sizing: $value;
+    -ms-box-sizing: $value;
+    -o-box-sizing: $value;
+}
+
+// Border Radius
+
+@mixin radius($radius, $color) {
+  border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+  border: 2px solid $color;
+}
+
+
+// Transitions
+
+@mixin transition($transition) {
+  transition: $transition;
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -ms-transition: $transition;
+    -o-transition: $transition;
+}
+
+// Transform
+
+@mixin transform($transform) {
+  transform: $transform;
+    -webkit-transform: $transform;
+    -moz-transform: $transform;
+    -ms-transform: $transform;
+    -o-transform: $transform;
+}
+
+// Box Shadows
+
+@mixin shadow($shadow) {
+  box-shadow: $shadow;
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    -ms-box-shadow: $shadow;
+    -o-box-shadow: $shadow;
+}

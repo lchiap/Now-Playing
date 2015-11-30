@@ -1,0 +1,59 @@
+// ==========================================================================
+// Helpers
+// ==========================================================================
+
+// Floats
+
+.pull-right {
+	float: right;
+}
+
+.pull-left {
+	float: left;
+}
+
+.img-responsive {
+	display: block;
+	width: 100%;
+}
+
+.text {
+	
+	@include m(blue) {
+		color: $dark-blue;
+	} 
+	
+	@include m(right) {
+		text-align: right;
+	}
+	
+}
+
+
+// BG
+
+.bg {
+	
+	@include m(light-blue){
+		background: $light-blue;
+	}
+	
+	@include m(grey) {
+		background: #EDF0F5;
+	}
+	
+	@include m(white) {
+		background: $white;
+	}
+}
+
+// Padding
+
+.padding-gral {
+	padding: rem(20px);
+}
+
+// Vertical center
+.vertical-center {
+	@extend %vertical-center;
+}
