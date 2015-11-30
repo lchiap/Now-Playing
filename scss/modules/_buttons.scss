@@ -1,0 +1,30 @@
+// ==========================================================================
+// Buttons
+// ==========================================================================
+
+// General Buttons Styles
+
+.btn {
+	display: inline-block;
+	margin: 0;
+	padding: rem(6px) rem(12px);
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	white-space: nowrap;
+	font-weight: $font-weight--light;
+	@include transition(.1s all linear);
+	@include radius(2rem, transparent);
+	font-size: rem(14px);
+	text-decoration: none;
+	
+	@include m(twitter) {
+		background: #3498DB;
+		color: $white;
+		
+		i {
+			margin-right: rem(5px);
+		}
+	}
+	
+}

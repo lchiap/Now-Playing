@@ -25,6 +25,62 @@
 		</div>
 	</header>
 	
+	<section class="section" ng-controller="tweet-controller as tweet">
+		
+		<header class="container bg--grey padding-gral">
+			
+				<form action="" class="form">
+					
+					<div class="row">
+						
+						<div class="col-md-5">
+							
+							<div class="row">
+								<div class="col-md-3">
+									<label for="">Video URL:</label>
+								</div>
+								<div class="col-md-9">
+									<input ng-model="url" id="url" type="text" class="input" value="asda"/>
+								</div>
+							</div>
+							
+						</div>
+						
+						<div class="col-md-5">
+							
+							<div class="row">
+								<div class="col-md-3">
+									<label for="">Comments:</label>
+								</div>
+								<div class="col-md-9">
+									<input ng-model="content" type="text" class="input" />
+								</div>
+							</div>
+							
+						</div>
+						
+						<div id="btn-tw" class="col-md-2 text--right" >
+							<a ng-click="add()" ng-href="https://twitter.com/intent/tweet?button_hashtag=nowPlaying&text={{content}}" class="btn btn--twitter" data-size="large" data-related="BInowplaying" target="_blank"><i class="fa fa-twitter"></i>Tweet #nowPlaying</a>
+						</div>
+						
+					</div>
+					
+				</form>
+			
+		</header>
+		
+		<main>
+			
+			<div class="container padding-gral bg--white">
+				
+				<div my-tweet></div>
+				
+			</div>
+	
+		</main>
+		
+	</section>
+	
 	
 
 	<!-- Angular.js -->

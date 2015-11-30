@@ -1,0 +1,30 @@
+// ==========================================================================
+// Form
+// ==========================================================================
+
+.form {
+	
+	.input {
+		width: 100%;
+		padding: 0 rem(6px);
+		margin-bottom: rem(10px);
+		height: 36px;
+		vertical-align: center;
+		font-weight: $font-weight--light;
+		background: $white;
+		@include transition(all .2s ease-in-out);
+		
+		@media screen and(min-width: $md-screen) {
+          	margin-bottom: initial;
+    	}
+	}
+	
+	.label {
+		
+		@include m(icon) {
+			position: absolute;
+			top: 20px;
+			left: 36px;
+			}
+		}
+}

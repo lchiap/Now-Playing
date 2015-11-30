@@ -1,0 +1,13 @@
+// ==========================================================================
+// Section
+// ==========================================================================
+
+.section {
+	padding: rem(10px) 0;
+	@media screen and(min-width: $sm-screen) {
+		padding: rem(20px) 0;
+	}
+    overflow: hidden;
+	position: relative;
+	
+}
