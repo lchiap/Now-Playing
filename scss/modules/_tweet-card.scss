@@ -4,7 +4,7 @@
 
 .tweet-card {
 	max-width: rem(980px);
-	margin: auto;
+	margin: 0 auto rem(40px);
 	
 	@include e(title){
 		margin: rem(20px) 0;
@@ -12,5 +12,13 @@
 		&:first-child {
 			margin-top: 0;
 		}
+	}
+	
+	@include e(img) {
+		border-radius: 4px;
+	}
+	
+	blockquote {
+		margin: 0;
 	}
 }

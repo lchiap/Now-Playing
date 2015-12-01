@@ -1,20 +1,31 @@
-<article class="tweet-card">
 
-	<p ng-show="loadingTweets">Loading tweets...</p>
-	
-	<div class="row" ng-repeat="tweet in tweets" ng-if="tweet.youtubeLink">
+<p ng-show="loadingTweets">Loading tweets...</p>
+
+<article class="tweet-card" ng-repeat="tweet in tweets">
+
+	<div class="row"  ng-if="tweet.youtubeLink">
 		<div class="col-md-12">
 			<h2 class="tweet-card__title headline-3">{{ tweet.title }}</h2>
 		</div>
 		
 		
-		<div class="col-md-8">
-			<iframe width="640" height="360" src="{{ tweet.youtubeLink }}" frameborder="0" allowfullscreen></iframe>
+		<div class="col-md-7">
+			<div class="video-wrapper">
+				<iframe width="640" height="360" src="{{ tweet.youtubeLink }}" frameborder="0" allowfullscreen></iframe>
+			</div>
 		</div>
-		<div class="col-md-4">
-			<img ng-src="{{ tweet.userImg }}" alt="">
+		
+		<div class="col-md-5">
+			
+			<img ng-src="{{ tweet.avatar }}" class="tweet-card__img" alt="Avatar">
 			<span>@{{ tweet.userName }}</span>
-			{{ tweet.text }}
+			
+			<blockquote>
+				<p>{{ tweet.text }}</p>
+				<span>{{ tweet.created_at }}</span>
+
+			</blockquote>
 		</div>
+		
 	</div>
 </article>
