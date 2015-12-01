@@ -13,7 +13,6 @@
 	
 	<!-- CSS -->
 	<link rel="stylesheet" href="css/min/main.css">
-
 	
 </head>
 <body>
@@ -60,7 +59,7 @@
 						</div>
 						
 						<div id="btn-tw" class="col-md-2 text--right" >
-							<a ng-click="add()" ng-href="https://twitter.com/intent/tweet?button_hashtag=nowPlaying&text={{content}}" class="btn btn--twitter" data-size="large" data-related="BInowplaying" target="_blank"><i class="fa fa-twitter"></i>Tweet #nowPlaying</a>
+							<a ng-href="https://twitter.com/intent/tweet?button_hashtag=nowPlaying&text={{content +' '+ url}}" class="btn btn--twitter" data-size="large" data-related="BInowplaying" target="_blank">Tweet #nowPlaying</a>
 						</div>
 						
 					</div>
@@ -81,28 +80,37 @@
 		
 	</section>
 	
-	
 
 	<!-- Angular.js -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-        
+       
+		
 		<!-- App -->
 		<script src="js/angular-app/angular-app.js"></script>
+		
+		<!-- Services -->
+		<script src="js/angular-app/services/tweets-service.js"></script>
 		
 		<!-- Controllers -->
 		<script src="js/angular-app/controllers/tweet-controller.js"></script>
 		
 		<!-- Directives -->
 		<script src="js/angular-app/directives/tweet-directive.js"></script>
-	
+		
 	<!-- jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/vendor/jquery.js"><\/script>')</script>
+	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 	
 	
 	<!-- MODULES -->
     <script src="js/modules.min.js"></script>
 	
+	<!-- Plugins -->
+    <script src="js/plugins/mediaelements/mediaelement-and-player.min.js"></script>
+	
+	<script>
+		$('video, audio').mediaelementplayer();
+	</script>
 	
 	
 	
