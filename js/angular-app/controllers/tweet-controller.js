@@ -17,15 +17,22 @@ app.controller('tweet-controller', ['$scope', 'TweetsRESTService', function($sco
 			TweetsRESTService.getTweets().success(function(data) {
 				$scope.tweets = data.statuses;
 				$scope.loadingTweets = false;
+				
 				for (var twit in $scope.tweets) {
+					console.log($scope.tweets[twit].user);
 					if ($scope.tweets[twit].entities.urls.length > 0) {
 						for (var url in $scope.tweets[twit].entities.urls) {
 							if ($scope.tweets[twit].entities.urls[url].expanded_url.indexOf("youtu.be") !== -1) {
 								$scope.tweets[twit].isYoutubeLink = true;
 								$scope.tweets[twit].youtubeLink = $scope.parseURL($scope.tweets[twit].entities.urls[url].expanded_url);
+								$scope.tweets[twit].userImg = $scope.tweets[twit].user.profile_image_url;
+								$scope.tweets[twit].title = $scope.tweets[twit].user.name;
+								$scope.tweets[twit].userName = $scope.tweets[twit].user.screen_name;
+								
 							};
 						}
 					}
+					
 				}
 			});
 		}
@@ -37,5 +44,6 @@ app.controller('tweet-controller', ['$scope', 'TweetsRESTService', function($sco
 			return protocol+"//youtube.com/embed/"+videoId;
 		}
 		$scope.loadTweets();
+
 		
 }]);
