@@ -70,9 +70,9 @@ gulp.task('deploy', function () {
     });
 
     var globs = [
+        'backend/**',
         'css/**',
         'js/**',
-        'php/**',
         'img/**',
         'index.html'
     ];
@@ -94,7 +94,6 @@ gulp.task('watch', function() {
     gulp.watch('scss/**/*.scss', ['styles']);
     gulp.watch('js/modules/**/*.js', ['modules-script']);
     gulp.watch('js/plugins/**/*.js', ['plugins-script']);
-    //gulp.watch('img/**/*', ['images']);
 });
 
 // Default Task
