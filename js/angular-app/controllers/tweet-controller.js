@@ -1,4 +1,4 @@
-app.controller('tweet-controller', ['$scope', 'TweetsRESTService', function($scope, TweetsRESTService) {
+app.controller('tweet-controller', ['$scope', 'TweetsRESTService', '$window', function($scope, TweetsRESTService, $window) {
 		
 		$scope.content = "";
 		$scope.url = "";
@@ -6,11 +6,11 @@ app.controller('tweet-controller', ['$scope', 'TweetsRESTService', function($sco
 		
 		$scope.tweets = [];
 		$scope.loadingTweets = false;
+		$scope.newTweet = {};
 		
 		$scope.add = function() {
 			document.getElementById("yt").setAttribute("src", $scope.url);
 		}
-		
 		
 		$scope.loadTweets = function() {
 			$scope.loadingTweets = true;
@@ -38,13 +38,49 @@ app.controller('tweet-controller', ['$scope', 'TweetsRESTService', function($sco
 			});
 		}
 		
+		var share_window = null;
+		$scope.tweetIt = function() {
+			
+			var urlData = "https://twitter.com/intent/tweet?text="+encodeURIComponent($scope.content + ' ' +$scope.url + ' #nowPlaying')+"&via=BInowplaying";
+			share_window = window.open(urlData, '', 'width=650, height=500');
+		}
+        
+        $(window).bind("message", function(event) {
+          event = event.originalEvent
+          if(event.source == share_window && event.data != "__ready__") {
+            $scope.newTweet = { 
+				entities: {
+					urls: [{ expanded_url: $scope.url}]
+				},
+				isYoutubeLink: true,
+				youtubeLink: $scope.parseURL($scope.url),
+				text: $scope.content,
+				id: Math.random()
+			}
+			$scope.tweets.unshift($scope.newTweet);
+			$scope.$apply();
+          }
+        });
+		
+		
 		$scope.parseURL = function(url) {
+			if (url.indexOf("watch?v=") != -1) {
+				var url = url.split("watch?v=");
+				console.log(url);
+				var url = url[0]+url[1];
+			}
+		
+		
 			var parts = url.split("/");
 			var protocol = parts[0];
 			var videoId = parts[parts.length-1];
 			return protocol+"//youtube.com/embed/"+videoId;
+			
 		}
-		$scope.loadTweets();
+		
+	
+	
+	$scope.loadTweets();
 
 		
 }]);

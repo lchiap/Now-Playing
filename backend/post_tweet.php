@@ -9,11 +9,9 @@ $settings = array(
     'consumer_secret' => "Y49dNi2NPN9vJaPS95QnRLslOqisEuC7v934lHOfN05cVjbtDB"
 );
 
-
-$url = 'https://api.twitter.com/1.1/search/tweets.json';
-$getfield = '?q=#nowplaying youtube&count=6';
-$requestMethod = 'GET';
+$url = 'https://api.twitter.com/1.1/statuses/update.json'; 
+$requestMethod = 'POST';
+$tweet = json_decode(file_get_contents('php://input'),TRUE);
+$postfields = array('status' => $tweet['tweet']); 
 $twitter = new TwitterAPIExchange($settings);
-$response = $twitter->setGetfield($getfield)->buildOauth($url, $requestMethod)->performRequest();
-header('Content-Type: application/json');
-echo $response;
+echo $twitter->buildOauth($url, $requestMethod)->setPostfields($postfields)->performRequest();

@@ -39,7 +39,7 @@
 									<label for="">Video URL:</label>
 								</div>
 								<div class="col-md-9">
-									<input ng-model="url" id="url" type="text" class="input" value="asda"/>
+									<input ng-model="url" id="url" type="text" class="input" value=""/>
 								</div>
 							</div>
 							
@@ -59,7 +59,7 @@
 						</div>
 						
 						<div id="btn-tw" class="col-md-2" >
-							<a ng-href="https://twitter.com/intent/tweet?button_hashtag=nowPlaying&text={{content +' '+ url}}" class="btn btn--twitter" data-size="large" data-related="BInowplaying" target="_blank"><i class="fa fa-twitter"></i>
+							<a ng-click="tweetIt()" ng-href="https://twitter.com/intent/tweet?button_hashtag=nowPlaying&text={{content +' '+ url}}" class="btn btn--twitter" data-size="large" data-related="BInowplaying" target="_blank"><i class="fa fa-twitter"></i>
 Tweet #nowPlaying</a>
 						</div>
 						
