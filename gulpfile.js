@@ -14,7 +14,6 @@ var gulp = require('gulp'),
     cache = require('gulp-cache'),
     gutil = require( 'gulp-util' ),
     ftp = require( 'vinyl-ftp' );
-    //imagemin = require('gulp-imagemin');
     
 
 // Compile Our Sass
@@ -60,16 +59,6 @@ gulp.task('plugins-script', function(){
    .pipe(notify({ message: 'Plugins Js task complete' }));
 });
 
-
-//Images
-
-//gulp.task('images', function() {
-//  return gulp.src('img/**/*')
-//    .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-//   .pipe(gulp.dest('img/min'))
-//    .pipe(notify({ message: 'Images task complete' }));
-//}); 
-
 gulp.task('deploy', function () {
 
     var conn = ftp.create( {
@@ -81,21 +70,19 @@ gulp.task('deploy', function () {
     });
 
     var globs = [
-        'data/**',
         'css/**',
         'js/**',
         'php/**',
         'img/**',
-        'music/**',
-        'index.php'
+        'index.html'
     ];
 
     // using base = '.' will transfer everything to /public_html correctly
     // turn off buffering in gulp.src for best performance
 
     return gulp.src( globs, { base: '.', buffer: false } )
-        .pipe( conn.newer( '/public_html/ovl/' ) ) // only upload newer files
-        .pipe( conn.dest( '/public_html/ovl/' ) );
+        .pipe( conn.newer( '/public_html/nowplaying/' ) ) // only upload newer files
+        .pipe( conn.dest( '/public_html/nowplaying/' ) );
 
 });
 
